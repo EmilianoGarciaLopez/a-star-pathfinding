@@ -5,16 +5,15 @@ WIDTH = 800
 WIN = pygame.display.set_mode((WIDTH, WIDTH))  # set window size
 pygame.display.set_caption("A* Path Finding Algorithm")
 
-RED: tuple = (255, 0, 0)
-GREEN: tuple = (0, 255, 0)
-BLUE: tuple = (0, 255, 0)
-YELLOW: tuple = (255, 255, 0)
+GREEN: tuple = (18, 184, 134)
+BLUE: tuple = (1, 95, 115)
+YELLOW: tuple = (255, 212, 59)
 WHITE: tuple = (255, 255, 255)
-BLACK: tuple = (0, 0, 0)
-PURPLE: tuple = (128, 0, 128)
-ORANGE: tuple = (255, 165, 0)
-GREY: tuple = (128, 128, 128)
-TURQUOISE: tuple = (64, 224, 208)
+BLACK: tuple = (0, 18, 25)
+PURPLE: tuple = (151, 117, 250)
+ORANGE: tuple = (238, 155, 0)
+GREY: tuple = (204, 207, 208)
+TURQUOISE: tuple = (10, 147, 150)
 
 
 class Spot:
@@ -32,7 +31,7 @@ class Spot:
         return self.row, self.col
 
     def is_closed(self) -> bool:
-        return self.color == RED
+        return self.color == YELLOW
 
     def is_open(self) -> bool:
         return self.color == GREEN
@@ -50,10 +49,10 @@ class Spot:
         self.color = WHITE
 
     def make_open(self) -> None:
-        self.color = GREEN
+        self.color = PURPLE
 
     def make_closed(self) -> None:
-        self.color = RED
+        self.color = YELLOW
 
     def make_start(self) -> None:
         self.color = ORANGE
@@ -65,7 +64,7 @@ class Spot:
         self.color = TURQUOISE
 
     def make_path(self) -> None:
-        self.color = PURPLE
+        self.color = GREEN
 
     def draw(self, win: pygame.Surface) -> None:
         pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))

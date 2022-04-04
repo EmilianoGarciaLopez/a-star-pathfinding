@@ -1,5 +1,4 @@
 from queue import PriorityQueue
-import math
 from typing import Callable
 
 import pygame
